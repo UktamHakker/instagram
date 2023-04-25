@@ -1,0 +1,202 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css">
+    <title>Instagram Profile</title>
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header>
+
+        <div class="container">
+
+            <div class="profile">
+
+                <div class="profile-image">
+                    {% if userInfo %}
+                    <img style="width: 200px ; height: 200px;" src="{{userInfo.image.url}}" alt="">
+                    {% else %}
+                    <img style="width: 200px ; height: 200px;" src="{{user.image.url}}" alt="">
+                    {% endif %}
+                </div>
+
+
+
+                <div class="modal">
+                    <div class="modal-background"></div>
+                    <div class="modal-content">
+                        <div class="box">
+
+
+                            <form method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <h1>Avatar</h1> <br>
+
+
+
+                                {{form.name}} <br><br><br>
+                                {{form.image}}<br><br><br>
+                                {{form.bio}}<br><br><br>
+                                {{form.username}} <br><br><br>
+
+                                <button
+                                    style="padding-left: 255px;padding-right: 300px; background-color: rgb(26, 133, 199);"
+                                    class="button is-primary is-danger">create</button>
+                                {{stors}}
+
+                            </form>
+                        </div>
+                        <div class="box">
+
+
+                            <form method="post" enctype="multipart/form-data">
+                                <h1>Stories</h1>
+                                {% csrf_token %}
+
+
+                                {{stors.author}} <br><br><br>
+                                {{stors.active}} <br><br><br>
+
+                                <button
+                                    style="padding-left: 255px;padding-right: 300px; background-color: rgb(26, 133, 199);"
+                                    class="button is-primary is-danger">create</button>
+                            </form>
+                        </div>
+                    </div>
+                    <button class="modal-close is-large" aria-label="close" onclick="closeModal()"></button>
+                </div>
+
+
+                <div class="profile-user-settings">
+
+                    {% if userInfo %}
+                    <h1 class="profile-user-name">{{ userInfo.name }}</h1>
+                    {% else %}
+                    <h1 class="profile-user-name">{{ user.name }}</h1>
+                    {% endif %}
+
+                    <button class="btn profile-edit-btn" aria-label="profile settings" id="madal_handler"
+                        onclick="btnFunction()">
+                        Profil +
+                        <a href="{% url 'profile' %}"></a>
+                    </button>
+
+                    <!-- {% if userForMassage %}
+                    <a href="{% url 'directs' userForMassage %}?username =" class="btn profile-edit-btn" aria-label="profile settings"
+                        id="madal_handler">
+                        SMS
+                    </a>
+
+                    {% endif %} -->
+
+
+                    <button class="btn profile-settings-btn" aria-label="profile settings">
+
+                        <a href="{% url 'homea' %}">
+                            <i class="fa-solid fa-house" style="color: #000000;"></i>
+                        </a>
+                    </button>
+
+                    <button class="btn profile-settings-btn" aria-label="profile settings" id="madal_handler1"
+                        onclick="btnFunction1()">
+                        <i class="fa-sharp fa-solid fa-gear"></i>
+                        <a href="{% url 'profile' %}"></a>
+                    </button>
+                </div>
+
+                <div class="profile-stats">
+
+                    <ul>
+                        <li><span class="profile-stat-count">12</span> posts</li>
+                        <li><span class="profile-stat-count">0</span> followers</li>
+                        <li><span class="profile-stat-count">99999999999999</span> following</li>
+                    </ul>
+
+                </div>
+
+                <div class="profile-bio">
+                    {% if userInfo %}
+                    <p><span class="profile-real-name">{{userInfo.username}}</span> {{userInfo.bio}} 📷✈️🏕️</p>
+                    {% else %}
+                    <p><span class="profile-real-name">{{user.username}}</span> {{user.bio}} 📷✈️🏕️</p>
+                    {% endif %}
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </header>
+
+    <main>
+
+        <div class="container">
+
+            <div class="gallery">
+                {% for uzers in posts %}
+                <div class="gallery-item" tabindex="0">
+
+                    <img style="width: 700px; height: 500px;" src="{{uzers.post_image.url}}" class="gallery-image"
+                        alt="">
+
+                    <div class="gallery-item-info">
+
+                        <ul>
+                            <li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i
+                                    class="fas fa-heart" aria-hidden="true"></i> 56</li>
+                            <li class="gallery-item-comments"><span class="visually-hidden">{{uzers.comment}}</span><i
+                                    class="fas fa-comment" aria-hidden="true"></i> 2</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </main>
+
+
+    <script>
+        let btn = document.getElementById("madal_handler")
+        let modal = document.querySelector(".modal")
+
+
+        const closeModal = () => {
+            modal.setAttribute('class', 'modal')
+        }
+
+        const btnFunction = () => {
+            modal.setAttribute('class', 'modal is-active')
+        }
+
+
+        let btn1 = document.getElementById("madal_handler1")
+        let modal1 = document.querySelector(".modal")
+
+
+        const closeModal1 = () => {
+            modal1.setAttribute('class', 'modal1')
+        }
+
+        const btnFunction1 = () => {
+            modal1.setAttribute('class', 'modal is-active')
+        }
+
+    </script>
+</body>
+
+</html>

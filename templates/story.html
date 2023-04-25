@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/story.css' %}">
+
+
+    <title>Story</title>
+</head>
+
+<body>
+<h1 align="center">salom </h1>
+
+
+<form method="post" enctype="multipart/form-data" class="box pb-3 pt-2"
+style="background-color: rgb(102, 102, 102)">
+    {% csrf_token %}
+    {{stors}} <br><br>
+
+    <button style="padding-left: 100px;padding-right: 100px; background-color: rgb(26, 133, 199);"
+    class="button is-primary is-danger">create</button>
+</form>
+    
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/comment.css">
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="post">
+        <div class="post-image">
+          <img src="https://via.placeholder.com/500x500" alt="Post Image">
+        </div>
+        <div class="post-comments">
+          <button class="show-comments-button">Comments</button>
+          <ul class="comment-list hidden">
+            <li class="comment">
+              <img class="avatar" src="https://via.placeholder.com/50" alt="User Avatar">
+              <div class="comment-content">
+                <h4 class="username">username</h4>
+                <p class="text">Comment text goes here</p>
+                <span class="timestamp">2 hours ago</span>
+              </div>
+            </li>
+            <li class="comment">
+              <img class="avatar" src="https://via.placeholder.com/50" alt="User Avatar">
+              <div class="comment-content">
+                <h4 class="username">username</h4>
+                <p class="text">Another comment here</p>
+                <span class="timestamp">3 hours ago</span>
+              </div>
+            </li>
+            <!-- more comments... -->
+          </ul>
+        </div>
+      </div>
+      
+</body>
+</html>
