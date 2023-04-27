@@ -13,7 +13,7 @@ def main(request):
     stories = Story.objects.all()
     followers = Avatar.objects.all()
     post = Post.objects.all().order_by('-date')
-    return render(request, 'index.html', {'followers': followers, 'posts': post, 'user': user,'stories':stories})
+    return render(request, 'index.html', {'followers': followers, 'posts': post, 'user': user, 'stories': stories})
 
 
 def post(request):
@@ -28,7 +28,7 @@ def post(request):
 
 
 def story(request):
-    stors = StoryForm(request.POST,request.FILES)
+    stors = StoryForm(request.POST, request.FILES)
     if request.method == 'POST':
         if stors.is_valid():
             stors.save()
@@ -43,7 +43,7 @@ def profile(request):
     userForMassage = request.user
     userInfo = Avatar.objects.filter(id=user_id).first()
     posts = Post.objects.filter(author=userInfo)
-   
+
     user = Avatar.objects.filter(username=request.user).first()
     users = Post.objects.all()
     if request.method == 'POST':
