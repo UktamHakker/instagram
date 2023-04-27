@@ -18,10 +18,16 @@
   <link rel="shortcut icon" type="image/x-icon"
     href="https://i.pinimg.com/originals/a2/5f/4f/a25f4f58938bbe61357ebca42d23866f.png" sizes="32x32" />
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+<<<<<<< HEAD
 
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/css/bulma-carousel.min.css">
+=======
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css"
+    integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+>>>>>>> 382b4add75138b322fbd37ae77c3d5d8b2785fe7
 </head>
 
 <body>
@@ -191,6 +197,7 @@
               <span class="story__user">{{story.author.name}}</span>
             </button>
 
+<<<<<<< HEAD
 
 
             
@@ -207,6 +214,17 @@
               <button class="modal-close is-large" aria-label="close" onclick="closeModal()"></button>
             </div>
 
+=======
+            <div class="modal">
+              <div class="modal-background"></div>
+              <div class="modal-content">
+                <p class="image is-4by3">
+                  <img src="https://bulma.io/images/placeholders/1280x960.png" alt="">
+                </p>
+              </div>
+              <button class="modal-close is-large" aria-label="close" onclick="closeModal()"></button>
+            </div>
+>>>>>>> 382b4add75138b322fbd37ae77c3d5d8b2785fe7
 
             {% else %}
 
@@ -231,7 +249,10 @@
               </div>
               <button class="modal-close is-large" aria-label="close" onclick="closeModal()"></button>
             </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 382b4add75138b322fbd37ae77c3d5d8b2785fe7
             {% endif %}
             {% endfor %}
           </div>
@@ -243,9 +264,6 @@
             </svg>
           </button>
         </div>
-
-
-
         <div class="posts">
           {% for post in posts %}
           <article class="post">
@@ -384,7 +402,8 @@
             {% for follower in followers %}
             <div class="side-menu__suggestion">
               <a href="{% url 'profile' %}?user_id={{follower.id}}" class="side-menu__suggestion-avatar">
-                <img src="{{follower.image.url}}" alt="User Picture" />
+                <img style="height: 100%; width: 100%;" src="{{follower.image.url}}"
+                  alt="User Picture" />
               </a>
               <div class="side-menu__suggestion-info">
                 <a href="{% url 'profile' %}?user_id={{follower.id}}">{{follower.name}}</a>
@@ -426,11 +445,14 @@
             </ul>
           </div>
 
+
+
           <span class="side-menu__footer-copyright">&copy; 2023 instagram Izmir Guruhi </span>
         </div>
       </section>
     </section>
   </main>
+
   <script>
     let btn = document.getElementById("madal_handler")
     let modal = document.querySelector(".modal")
@@ -446,6 +468,7 @@
   </script>
 
 
+<<<<<<< HEAD
   <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
   <script>
     bulmaCarousel.attach('#carousel-demo', {
@@ -453,6 +476,10 @@
       slidesToShow: 4
     });
   </script>
+=======
+
+
+>>>>>>> 382b4add75138b322fbd37ae77c3d5d8b2785fe7
 
 </body>
 
