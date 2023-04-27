@@ -18,9 +18,16 @@
   <link rel="shortcut icon" type="image/x-icon"
     href="https://i.pinimg.com/originals/a2/5f/4f/a25f4f58938bbe61357ebca42d23866f.png" sizes="32x32" />
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+<<<<<<< HEAD
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/css/bulma-carousel.min.css">
+=======
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css"
     integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+>>>>>>> 382b4add75138b322fbd37ae77c3d5d8b2785fe7
 </head>
 
 <body>
@@ -190,6 +197,24 @@
               <span class="story__user">{{story.author.name}}</span>
             </button>
 
+<<<<<<< HEAD
+
+
+            
+            <div class="modal">
+              <div class="modal-background"></div>
+              <div class="modal-content">
+
+                <video width="640" height="360" loop autoplay muted controls>
+                  <source src="{{story.video.url}}" type="video/mp4">
+                  Bu yerda video bor
+                </video>
+
+              </div>
+              <button class="modal-close is-large" aria-label="close" onclick="closeModal()"></button>
+            </div>
+
+=======
             <div class="modal">
               <div class="modal-background"></div>
               <div class="modal-content">
@@ -199,6 +224,7 @@
               </div>
               <button class="modal-close is-large" aria-label="close" onclick="closeModal()"></button>
             </div>
+>>>>>>> 382b4add75138b322fbd37ae77c3d5d8b2785fe7
 
             {% else %}
 
@@ -223,6 +249,10 @@
               </div>
               <button class="modal-close is-large" aria-label="close" onclick="closeModal()"></button>
             </div>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 382b4add75138b322fbd37ae77c3d5d8b2785fe7
             {% endif %}
             {% endfor %}
           </div>
@@ -435,12 +465,21 @@
     const btnFunction = () => {
       modal.setAttribute('class', 'modal is-active')
     }
-
   </script>
 
 
+<<<<<<< HEAD
+  <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
+  <script>
+    bulmaCarousel.attach('#carousel-demo', {
+      slidesToScroll: 1,
+      slidesToShow: 4
+    });
+  </script>
+=======
 
 
+>>>>>>> 382b4add75138b322fbd37ae77c3d5d8b2785fe7
 
 </body>
 
